@@ -30,6 +30,16 @@ So, you need to create a device module for your own device.
 You can study from the device modules that already exists in Devices directory.
 Also, you need to modify *Devices/DeviceDetector.py* and *Devices/\_\_init\_\_.py* to include your device module too.
 
+###Guide for creating touch scripts for your devices
+*This is not same as device module file (Python class file)*
+
+* Enable USB debugging and connect your device.
+* Run *adb shell getevent*, turn on your device screen, touch the screen many many time and observe an output.
+* You should know which device file is for touchscreen, you can observe again by run *adb shell getevent | grep /dev/input/<device file>* (Linux only)
+* Reverse engineer it!
+* By the way, you can simulate/send event using *sendevent* command on device
+* There are some touch scripts already available for some devices located in *Devices/TouchScripts/*
+
 Notes
 -----
 * **You need to enable USB debugging option and connect the device via USB cable.**
