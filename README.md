@@ -35,7 +35,7 @@ Also, you need to modify *Devices/DeviceDetector.py* and *Devices/\_\_init\_\_.p
 
 * Enable USB debugging and connect your device.
 * Run *adb shell getevent*, turn on your device screen, touch the screen many many time and observe an output.
-* You should know which device file is for touchscreen, you can observe again by run *adb shell getevent | grep /dev/input/<device file>* (Linux only)
+* You should know which device file is for touchscreen at this time, you can observe again by run *adb shell getevent | grep /dev/input/<device file>* (Linux only)
 * Reverse engineer it!
 * By the way, you can simulate/send event using *sendevent* command on device
 * There are some touch scripts already available for some devices located in *Devices/TouchScripts/*
