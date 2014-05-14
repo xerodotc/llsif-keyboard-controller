@@ -1,8 +1,8 @@
 Love Live! School Idol Festival: Keyboard Controller
 ====================================================
 
-Keyboard Controller for Love Live! School Idol Festival for Android
-This is done by simulating/sending touch event via ADB
+Keyboard Controller for Love Live! School Idol Festival for Android.
+This is done by simulating/sending touch event via ADB.
 
 TL;DR
 -----
