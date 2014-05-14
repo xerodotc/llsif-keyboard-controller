@@ -15,7 +15,7 @@ Requirements
 * Android Debug Bridge
  * Ubuntu (and maybe its derivative) users: *sudo apt-get install android-tools-adb*
  * Linux users: There might be ADB available in your repository. Please check by yourself.
- * Windows/OS X/Linux users: [Download ADT Bundle](http://developer.android.com/sdk/index.html) then extract the packages. ADB is located in adt-bundle.../sdk/platform-tools/.
+ * Windows/OS X/Linux users: [Download ADT Bundle](http://developer.android.com/sdk/index.html) then extract the package. ADB is located in adt-bundle.../sdk/platform-tools/.
 * Programming Skills 
 
 Warnings
@@ -40,7 +40,7 @@ Notes
 I didn't distribute .exe file for this because it'll need some code modification.
 I recommend to download and install Python, Pygame, ADB from the link in the requirements section, then modify some configuration (such as path to ADB executable) and run it.
 
-By the way, I use Ubuntu. :P
+By the way, I use Ubuntu...
 
 Contacts
 --------
