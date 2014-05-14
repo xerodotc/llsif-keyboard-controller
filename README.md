@@ -38,7 +38,7 @@ Notes
 
 ###For Windows user
 I didn't distribute .exe file for this because it'll need some code modification.
-I recommend to download and install Python, Pygame, ADB from the link in the requirements section, then modify some configuration (such as path to ADB executable) and run it.
+I recommend to download and install Python, Pygame, ADB from the links in the requirements section, then modify some configuration (such as path to ADB executable) and run it.
 
 By the way, I use Ubuntu...
 
