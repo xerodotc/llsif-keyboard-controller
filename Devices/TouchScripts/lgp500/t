@@ -1,0 +1,3 @@
+#!/system/bin/sh
+
+sendevent /dev/input/event1 3 48 1; sendevent /dev/input/event1 3 53 $1; sendevent /dev/input/event1 3 54 $2; sendevent /dev/input/event1 0 2 0; sendevent /dev/input/event1 0 0 0
