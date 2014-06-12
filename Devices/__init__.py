@@ -33,6 +33,8 @@ if deviceModule == "ztev970m":
     from ZTEV970M import _Device
 elif deviceModule == "lgp500":
     from LGP500 import _Device
+elif deviceModule == "bluestacks":
+	from BlueStacks import _Device
 
 # Device class stub (extended from device module)
 class Device (_Device):
