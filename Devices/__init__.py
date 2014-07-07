@@ -35,6 +35,10 @@ elif deviceModule == "lgp500":
     from LGP500 import _Device
 elif deviceModule == "bluestacks":
 	from BlueStacks import _Device
+else:
+    print "Unsupported device"
+    raw_input()
+    sys.exit()
 
 # Device class stub (extended from device module)
 class Device (_Device):
