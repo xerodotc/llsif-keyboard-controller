@@ -8,7 +8,7 @@ Copyright (c) 2014 Visatouch Deeying ("xerodotc")
 Love Live! School Idol Festival is a trademark of KLab and Bushiroad
 '''
 
-import sys, platform
+import sys, platform, ConfigParser
 import pygame
 hasPyHook = False
 try:
@@ -47,6 +47,11 @@ def main():
     pygame.display.set_caption("Love Live! School Idol Festival: Keyboard Controller")
     screen = pygame.display.get_surface()
     screen.fill(UIConfig.BG_COLOR)
+    
+    config = ConfigParser.ConfigParser(allow_no_value=True)
+    config.read('config.cfg')
+    if config.getboolean("Main", "iconify"):
+        pygame.display.iconify()
 
     firstFrame = True
 

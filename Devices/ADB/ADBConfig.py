@@ -16,5 +16,5 @@ config.read('config.cfg')
 #ADB_EXECUTABLE = "adb" # Path to ADB executable (or how you launch ADB)
 #ADB_DEVICE_SERIAL = None # Device serial number, set to None to autoconnect for single device
 
-ADB_EXECUTABLE = config.get("ADB", "adb-exe")
-ADB_DEVICE_SERIAL = config.get("ADB", "adb-serial")
+ADB_EXECUTABLE = config.get("ADB", "executable")
+ADB_DEVICE_SERIAL = config.get("ADB", "device-serial")
