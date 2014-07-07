@@ -29,7 +29,7 @@ class _Device(object):
         self.TOUCH_SCRIPTS_TOUCH2 = "t2" # Multitouch
         self.TOUCH_SCRIPTS_RELEASE = "r" # Release all
         self.TOUCH_SCRIPTS_FILELIST = [self.TOUCH_SCRIPTS_RELEASE, self.TOUCH_SCRIPTS_TOUCH, self.TOUCH_SCRIPTS_TOUCH2]
-        self.TOUCH_POSITION = [(0, 0), (1000, 1000), (2000, 2000), (3000, 3000), (4000, 4000), (5000, 5000), (6000, 6000), (7000, 7000), (8000, 8000), (9000, 9000)]
+        self.TOUCH_POSITION = [(28570, 1138), (5632, 7691), (6451, 14973), (8781, 21208), (12262, 25304), (16358, 26761), (20480, 25304), (23987, 21208), (26291, 14973), (27136, 7691)]
         self.PYHOOK = False
         
         if DeviceConfig.BLUESTACKS_USE_PYHOOK:
