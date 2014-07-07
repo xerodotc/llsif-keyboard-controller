@@ -16,6 +16,7 @@ Requirements
  * Ubuntu (and maybe its derivative) users: *sudo apt-get install android-tools-adb*
  * Linux users: There might be ADB available in your repository. Please check by yourself.
  * Windows/OS X/Linux users: [Download ADT Bundle](http://developer.android.com/sdk/index.html) then extract the package. ADB is located in adt-bundle.../sdk/platform-tools/.
+* [pyHook](http://sourceforge.net/projects/pyhook/) and [pywin32](http://sourceforge.net/projects/pywin32/) (Optional; Used for unfocused window keystroke detection, useful to Bluestacks user)
 * Programming Skills 
 
 Warnings

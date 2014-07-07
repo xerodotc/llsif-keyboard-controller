@@ -8,16 +8,37 @@ Copyright (c) 2014 Visatouch Deeying ("xerodotc")
 Love Live! School Idol Festival is a trademark of KLab and Bushiroad
 '''
 
-import sys
+import sys, platform
 import pygame
+hasPyHook = False
+try:
+    import pyHook, pythoncom
+    hasPyHook = True
+except ImportError, e:
+    pass
 from Devices import Device # Wait for device is already handled here
 import UIConfig, KeyConfig
 
+dev = None
+
 def main():
+    global hasPyHook, dev
+    
     # Initialize ADB and push some touching scripts
     device = Device()
     device.pushScripts()
-
+    
+    usePyHook = False
+    if hasPyHook and device.PYHOOK:
+        usePyHook = True
+    
+    if usePyHook:
+        dev = device
+        hooks_manager = pyHook.HookManager()
+        hooks_manager.KeyDown = pyHookOnKeyDown
+        hooks_manager.KeyUp = pyHookOnKeyUp
+        hooks_manager.HookKeyboard()
+    
     # Initialize pygame module
     pygame.init()
     pygame.font.init()
@@ -48,16 +69,20 @@ def main():
                     keyData = getKey(event.key)
                     if keyData == -1:
                         sys.exit()
-                    elif keyData > -1:
+                    elif not usePyHook and keyData > -1:
                         screenUpdate = True
                         device.registerKey(keyData)
                 elif event.type == pygame.KEYUP:
                     keyData = getKey(event.key)
                     if keyData == -1:
                         sys.exit()
-                    elif keyData > -1:
+                    elif not usePyHook and keyData > -1:
                         screenUpdate = True
                         device.unregisterKey(keyData)
+            
+            if usePyHook:
+                pythoncom.PumpWaitingMessages()
+                screenUpdate = True
 
             # Update touch event on devices (up to device module)
             device.updateTouch()
@@ -96,6 +121,22 @@ def main():
                 pygame.display.flip()
         except KeyboardInterrupt as e:
             break
+            
+# pyHook Key Handler
+def pyHookOnKeyDown(event):
+    global dev
+    keyData = getKey(event.Ascii)
+    if keyData > -1:
+        dev.registerKey(keyData)
+    #print "KeyDown " + str(event.Ascii)
+    return True
+def pyHookOnKeyUp(event):
+    global dev
+    keyData = getKey(event.Ascii)
+    if keyData > -1:
+        dev.unregisterKey(keyData)
+    #print "KeyUp " + str(event.Ascii)
+    return True
 
 # Key code to button code
 def getKey(key):
@@ -124,4 +165,3 @@ def getKey(key):
     return -256
 
 if __name__ == "__main__": main() # Run main function
-

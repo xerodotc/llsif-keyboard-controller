@@ -34,10 +34,13 @@ class _Device(object):
         self.TOUCH_SCRIPTS_RELEASE = "r" # Release all
         self.TOUCH_SCRIPTS_FILELIST = [self.TOUCH_SCRIPTS_RELEASE, self.TOUCH_SCRIPTS_TOUCH0, self.TOUCH_SCRIPTS_TOUCH1, self.TOUCH_SCRIPTS_TOUCH01]
         self.TOUCH_POSITION = [(520, 863), (405, 142), (276, 169), (166, 241), (93, 351), (68, 480), (93, 610), (166, 719), (276, 792), (405, 817)]
+        self.PYHOOK = False
 
     # Register key (KeyPress)
     def registerKey(self, keyData):
         if keyData < 0:
+            return
+        if self.keyCodeReg[keyData]:
             return
         self.keyEventReg.append(keyData)
         self.keyCodeReg[keyData] = True
@@ -50,10 +53,10 @@ class _Device(object):
     def unregisterKey(self, keyData):
         if keyData < 0:
             return
-        if self.keyCodeReg[keyData] == None:
+        if not self.keyCodeReg[keyData]:
             return
         self.keyEventReg.remove(keyData)
-        self.keyCodeReg[keyData] = None
+        self.keyCodeReg[keyData] = False
         self.touchRegister = True
         # Debug
         #print self.keyEventReg

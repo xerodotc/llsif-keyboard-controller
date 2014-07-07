@@ -30,10 +30,16 @@ class _Device(object):
         self.TOUCH_SCRIPTS_RELEASE = "r" # Release all
         self.TOUCH_SCRIPTS_FILELIST = [self.TOUCH_SCRIPTS_RELEASE, self.TOUCH_SCRIPTS_TOUCH, self.TOUCH_SCRIPTS_TOUCH2]
         self.TOUCH_POSITION = [(0, 0), (1000, 1000), (2000, 2000), (3000, 3000), (4000, 4000), (5000, 5000), (6000, 6000), (7000, 7000), (8000, 8000), (9000, 9000)]
+        self.PYHOOK = False
+        
+        if DeviceConfig.BLUESTACKS_USE_PYHOOK:
+            self.PYHOOK = True
 
     # Register key (KeyPress)
     def registerKey(self, keyData):
         if keyData < 0:
+            return
+        if self.keyCodeReg[keyData]:
             return
         self.keyEventReg.append(keyData)
         self.keyCodeReg[keyData] = True
@@ -46,10 +52,10 @@ class _Device(object):
     def unregisterKey(self, keyData):
         if keyData < 0:
             return
-        if self.keyCodeReg[keyData] == None:
+        if not self.keyCodeReg[keyData]:
             return
         self.keyEventReg.remove(keyData)
-        self.keyCodeReg[keyData] = None
+        self.keyCodeReg[keyData] = False
         self.touchRegister = True
         # Debug
         #print self.keyEventReg

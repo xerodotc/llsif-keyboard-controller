@@ -18,3 +18,4 @@ TOUCH_SCRIPTS_DIR = "TouchScripts/"
 ZTEV970M_SINGLE_TOUCH_PRIORITY = True # For ZTE V970M if you're playing easy song turn this on, otherwise turn this off
 LGP500_SINGLE_TOUCH_PRIORITY = False # For LG-P500 leaving this off is a better choice
 BLUESTACKS_SINGLE_TOUCH_PRIORITY = False
+BLUESTACKS_USE_PYHOOK = True
