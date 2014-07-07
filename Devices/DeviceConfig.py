@@ -8,8 +8,15 @@ Copyright (c) 2014 Visatouch Deeying ("xerodotc")
 Love Live! School Idol Festival is a trademark of KLab and Bushiroad
 '''
 
+import ConfigParser
+
+config = ConfigParser.ConfigParser(allow_no_value=True)
+config.read('config.cfg')
+
 # If you want to force a device module set this, otherwise auto-detect
 DEVICE_MODULE = None
+if config.getboolean("Bluestacks", "bluestacks"):
+    DEVICE_MODULE = "bluestacks"
 
 # Touch scripts directory
 TOUCH_SCRIPTS_DIR = "TouchScripts/"
