@@ -83,7 +83,7 @@ class _Device(object):
             self.touchRegister = False
         else:
             if self.touchTimer < 0 or len(self.keyEventReg) != self.touchTimerFor:
-                self.touchTimer = 30
+                self.touchTimer = 10000
                 self.touchTimerFor = len(self.keyEventReg)
             elif self.touchTimer == 0:
                 self.registerTouch()
