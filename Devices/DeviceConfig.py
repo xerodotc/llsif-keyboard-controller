@@ -16,7 +16,7 @@ config.read('config.cfg')
 # If you want to force a device module set this, otherwise auto-detect
 DEVICE_MODULE = None
 if config.getboolean("Main", "bluestacks"):
-    DEVICE_MODULE = "bluestacks"
+	DEVICE_MODULE = "bluestacks"
 
 # Touch scripts directory
 TOUCH_SCRIPTS_DIR = "TouchScripts/"

@@ -15,33 +15,33 @@ import DeviceConfig
 # Wait for device
 # (I don't like to handle this here but it's required for device auto-detection)
 try:
-    print "Waiting for device..."
-    ADB.waitDevice()
+	print "Waiting for device..."
+	ADB.waitDevice()
 except KeyboardInterrupt as e:
-    sys.exit()
+	sys.exit()
 
 # If device module is already (forced) defined then use it
 # otherwise auto-detect
 if DeviceConfig.DEVICE_MODULE != None:
-    deviceModule = DeviceConfig.DEVICE_MODULE
+	deviceModule = DeviceConfig.DEVICE_MODULE
 else:
-    from DeviceDetect import detectDeviceModule
-    deviceModule = detectDeviceModule()
+	from DeviceDetect import detectDeviceModule
+	deviceModule = detectDeviceModule()
 
 # Import _Device class according to device module
 if deviceModule == "ztev970m":
-    from ZTEV970M import _Device
+	from ZTEV970M import _Device
 elif deviceModule == "lgp500":
-    from LGP500 import _Device
+	from LGP500 import _Device
 elif deviceModule == "bluestacks":
 	from BlueStacks import _Device
 else:
-    print "Unsupported device"
-    raw_input()
-    sys.exit()
+	print "Unsupported device"
+	raw_input()
+	sys.exit()
 
 # Device class stub (extended from device module)
 class Device (_Device):
-    def __init__(self):
-        super(Device, self).__init__()
-        self.adb = ADB
+	def __init__(self):
+		super(Device, self).__init__()
+		self.adb = ADB

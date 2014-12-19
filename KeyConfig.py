@@ -29,8 +29,8 @@ KEYS_ARRAY = [PAUSE, LEFT_4, LEFT_3, LEFT_2, LEFT_1, MIDDLE, RIGHT_1, RIGHT_2, R
 
 # getKeyName Function
 def getKeyName(key):
-    if key >= K_a and key <= K_z:
-        return chr(key - K_a + 65)
-    elif key == K_SPACE:
-        return "space"
-    return chr(key)
+	if key >= K_a and key <= K_z:
+		return chr(key - K_a + 65)
+	elif key == K_SPACE:
+		return "space"
+	return chr(key)
