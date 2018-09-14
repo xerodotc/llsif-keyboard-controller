@@ -29,7 +29,7 @@ The currently supported devices are only limited to devices I have...
 Because each devices aren't handling touch event the same way.
 So, you need to create a device module for your own device.
 You can study from the device modules that already exists in Devices directory.
-Also, you need to modify `Devices/DeviceDetector.py` and `Devices/\_\_init\_\_.py` to include your device module too.
+Also, you need to modify `Devices/DeviceDetector.py` and `Devices/__init__.py` to include your device module too.
 
 ### Guide for creating touch scripts for your devices
 *This is not same as device module file (Python class file)*
